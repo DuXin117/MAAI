@@ -2,7 +2,7 @@
 Author: Xin Du
 Date: 2024-11-27 21:33:57
 LastEditors: Xin Du
-LastEditTime: 2024-12-16 22:13:54
+LastEditTime: 2024-12-17 15:59:43
 Description: Programable logic controller
 '''
 
@@ -153,8 +153,8 @@ class PLC:
         
         MV_SP = work_condition_df.iloc[self.sim_cnt, 4 : ].to_list()
         
-        Actor_data_file_path = f'./data/json/{self.name}_actors.json'
-        Sensor_data_file_path = f'./data/json/{self.name}_sensors.json'
+        Actor_data_file_path = f'./data/FCC_json/{self.name}_actors.json'
+        Sensor_data_file_path = f'./data/FCC_json/{self.name}_sensors.json'
         
         current_time = time.time()
         if self.name == 'PLC1':

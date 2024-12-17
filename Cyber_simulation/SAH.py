@@ -2,17 +2,13 @@
 Author: Xin Du
 Date: 2023-04-12 11:49:00
 LastEditors: Xin Du
-LastEditTime: 2024-12-17 10:58:04
+LastEditTime: 2024-12-17 17:32:21
 Description: Security analysis host
 '''
 import time
 import pandas as pd
 
 from scapy.utils import wrpcap
-from pymodbus.constants import Defaults
-from pymodbus.transaction import ModbusSocketFramer
-from pymodbus.utilities import hexlify_packets
-from io import BytesIO
 from datetime import datetime
 
 import sys
@@ -42,14 +38,12 @@ class SAH:
 
         # Read simulation configuration
         sim_cfg = get_system_config('simulation')
-        sim_cdn_cfg = get_system_config('condition')
         self.sim_end_time = sim_cfg['sim_end_time']
         self.sim_data_start_time = sim_cfg['sim_data_start_time']
         self.sim_state = sim_cfg['sim_state']
         
         sim_period = sim_cfg['sim_period']
         self.real_sim_time_out = self.sim_end_time * sim_period + 50
-        self.sim_state_list = sim_cdn_cfg['sim_state_list']
         self.stop_sniffing = False
         self.sim_data_start_time = sim_cfg['sim_data_start_time']
 
@@ -119,8 +113,4 @@ class SAH:
     def run(self):
     
         self.sniff_online_packet()
-
-
-
-
 

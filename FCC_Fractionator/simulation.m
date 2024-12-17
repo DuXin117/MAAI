@@ -1,5 +1,4 @@
-% 多JSON文件写入前的版本
-function [] = simulationV3(sim_step)
+function simulation(sim_step)
 
 % Temperature--> Temperature of fractionator stages (from top to bottom)
 % Ttrack--> Cut points for products [HN,LCO]
@@ -92,12 +91,12 @@ PLC2_Actor_data_file_path = './data/FCC_json/PLC2_actors.json';
 PLC1_Sensor_data_file_path = './data/FCC_json/PLC1_sensors.json';
 PLC2_Sensor_data_file_path = './data/FCC_json/PLC2_sensors.json';
 
-% 初始化文件
+% 初始化文�?
 PLC1_sensor_data = struct('sensors', PLC1_sensors, 'sim_cnt', 0);
 fid = fopen(PLC1_Sensor_data_file_path, 'w');
 fwrite(fid, jsonencode(PLC1_sensor_data));
 fclose(fid);
-% 初始化文件
+% 初始化文�?
 PLC2_sensor_data = struct('sensors', PLC2_sensors, 'sim_cnt', 0);
 fid = fopen(PLC2_Sensor_data_file_path, 'w');
 fwrite(fid, jsonencode(PLC2_sensor_data));

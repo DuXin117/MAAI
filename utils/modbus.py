@@ -2,7 +2,7 @@
 Author: Xin Du
 Date: 2023-04-13 17:36:37
 LastEditors: Xin Du
-LastEditTime: 2024-12-17 10:06:36
+LastEditTime: 2024-12-17 16:52:16
 Description: file content
 '''
 
@@ -20,17 +20,15 @@ from utils.utils import get_system_config
 
 
 
+
 def read_data_from_modbus_device(client: ModbusTcpClient, reg_len: int = 20, slave: int = 0, client_name: str = 'client', target_name: str = 'server') -> Optional[List[float]]:
 
-    # result = client.read_holding_registers(0, reg_len, slave=slave)
     result = client.read_holding_registers(0, reg_len, unit = slave)
-
     if result.isError():
         print(f"{client_name}-{slave}: Error reading data from {target_name}")
         return None
     float_data = decode_float_values(result.registers)
     print(f"{client_name}-{slave}: Successfully read data from {target_name}")
-    # print("Received data:", float_data)
     print()
     return float_data
 
@@ -101,4 +99,3 @@ def float32_to_modbus_registers(float_values):
 
 def generate_random_floats(num_values):
     return [random.uniform(0, 10000)/100 for _ in range(num_values)]
-

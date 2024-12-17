@@ -3,7 +3,7 @@
 Author: Xin Du
 Date: 2024-11-20 10:04:49
 LastEditors: Xin Du
-LastEditTime: 2024-12-16 11:49:45
+LastEditTime: 2024-12-17 15:36:12
 Description: cyber domain simulation
 '''
 
@@ -12,7 +12,6 @@ import win32gui
 import win32con
 import subprocess
 
-from utils.data_interaction import read_work_condition, read_write_sim_data
 from utils.utils import get_system_config, write_config
 
 

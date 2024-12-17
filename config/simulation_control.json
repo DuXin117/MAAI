@@ -1,9 +1,9 @@
 {
-    "sim_state": "F_SF",
-    "sim_time": 131,
-    "sim_end_time": 130,
+    "sim_state": "NORMAL",
+    "sim_time": 26,
+    "sim_end_time": 1200,
     "sim_period": 2,
     "save_sim_file": true,
     "sim_data_start": 0,
-    "sim_data_start_time": 1400
+    "sim_data_start_time": 0
 }
