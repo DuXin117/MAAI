@@ -1,0 +1,7 @@
+{
+    "IP": ["sip", "dip"],
+    "TCP": ["sport", "dport", "seq", "ack", "window"],
+    "MBTCP": ["transId", "protoId", "len", "unitId"],
+    "MODBUS": ["funcCode"],
+    "DERIVE": ["delta_t", "pac_arr"]
+}
