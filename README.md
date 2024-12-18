@@ -2,7 +2,7 @@
  * @Author: Xin Du
  * @Date: 2024-12-16 10:50:30
  * @LastEditors: Xin Du
- * @LastEditTime: 2024-12-18 11:55:01
+ * @LastEditTime: 2024-12-18 15:07:06
  * @Description: file content
 -->
 
@@ -61,6 +61,14 @@ scapy==2.5.0
 
 
 ## 3. Attack fault simulation dataset
+
+### 3.1 Experimental Data from the Simulation System
+The experimental dataset collected from the simulation system includes data of multiple abnormal modes, which comes from the simulation of multiple models and the final integration of the data. The `./data` folder contains sample simulation data.
+
+### 3.2  Simulation Data in Specific Folders
+The `./data/cyber` and `./data/physical` folders contain simulation data CSV files under various modes. The integrated simulation files are as follows:
+- **Network Communication Messages**: `./data/Combined_cyber_data_1214_20.csv`
+- **Process Data**: `./data/Combined_physical_data_1214_20.csv` 
 
 
 ## 4. Attack fault identification
