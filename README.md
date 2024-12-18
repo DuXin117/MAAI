@@ -2,7 +2,7 @@
  * @Author: Xin Du
  * @Date: 2024-12-16 10:50:30
  * @LastEditors: Xin Du
- * @LastEditTime: 2024-12-18 15:07:06
+ * @LastEditTime: 2024-12-18 22:33:29
  * @Description: file content
 -->
 
@@ -10,7 +10,6 @@
 # MAAI Project
 
 ## 1. Project Introduction
-
 
 This project has open sourced an industrial cyber physical system simulation environment for experimental datasets and detection programs used in attack detection. More specifically, it includes: 
 
@@ -63,13 +62,31 @@ scapy==2.5.0
 ## 3. Attack fault simulation dataset
 
 ### 3.1 Experimental Data from the Simulation System
+
 The experimental dataset collected from the simulation system includes data of multiple abnormal modes, which comes from the simulation of multiple models and the final integration of the data. The `./data` folder contains sample simulation data.
 
+
 ### 3.2  Simulation Data in Specific Folders
+
 The `./data/cyber` and `./data/physical` folders contain simulation data CSV files under various modes. The integrated simulation files are as follows:
 - **Network Communication Messages**: `./data/Combined_cyber_data_1214_20.csv`
 - **Process Data**: `./data/Combined_physical_data_1214_20.csv` 
 
 
 ## 4. Attack fault identification
+
+### 4.1 Multi-domain Anomaly Device Detection
+
+- Software Environment Requirements
+```
+
+```
+
+- Program Parameter Configuration
+  - Set the experimental data category `data_type` to either `cyber` or `physical` in the function `cyber_anomaly_detection()` of `./model/multidomain_anomaly_detector.py`.
+  - Set the list of experimental models `test_model_list`.
+  - The training parameters of the DL model are set in `./config/model_config.py`, and the test grid for the detection threshold can also be found in this configuration file.
+
+- Program Startup
+  - `python Anomaly_detector.py` 
 

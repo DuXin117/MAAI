@@ -2,7 +2,7 @@
 Author: Xin Du
 Date: 2023-06-25 22:57:20
 LastEditors: Xin Du
-LastEditTime: 2024-12-17 11:39:26
+LastEditTime: 2024-12-18 21:59:44
 Description: Experimental parameter configuration
 '''
 
@@ -69,5 +69,3 @@ record_cfg = {
     },
 
 }
-
-
