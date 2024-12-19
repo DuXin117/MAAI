@@ -2,8 +2,8 @@
 Author: Xin Du
 Date: 2024-12-11 10:52:26
 LastEditors: Xin Du
-LastEditTime: 2024-12-18 22:02:51
-Description: file content
+LastEditTime: 2024-12-19 16:27:14
+Description: Multi-domain anomaly detector
 '''
 
 import copy
@@ -22,7 +22,7 @@ from model.build_ad_model import ad_metric, build_ad_model
 from utils.utils import print_model_result
 
 
-def cyber_anomaly_detection():
+def multidomain_anomaly_detection():
     
     data_type = 'cyber'
     # data_type = 'physical'
@@ -115,10 +115,7 @@ def test_ad_model(exp_data, model_type, exp_type, model_para, model_train_para, 
     
     train_X, test_X, y_true = exp_data
     seed_list = exp_group_cfg['seed_list']
-    if 'ad' in exp_type:
-        detect_ratio_list = ad_threshold_ratio[model_type]
-    else:
-        detect_ratio_list = al_threshold_ratio[model_type]
+    detect_ratio_list = al_threshold_ratio[model_type]
     ad_seed_list, code_list, ACC_list, FAR_list, PRE_list, REC_list, F1_list = [], [], [], [], [], [], []
     best_ACC, best_FAR = 0, 0
 

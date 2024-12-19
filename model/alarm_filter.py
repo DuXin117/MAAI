@@ -1,8 +1,6 @@
 
 import copy
 
-from config.bn_config import device_list, cyb_devices, phy_devices, device_relationships
-
 
 def Spatiotemporal_alarm_filter(cp_alarms, filter_mode = 'window'):
 

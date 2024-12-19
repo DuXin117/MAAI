@@ -2,7 +2,7 @@
 Author: Xin Du
 Date: 2024-09-18 16:32:26
 LastEditors: Xin Du
-LastEditTime: 2024-12-19 10:50:25
+LastEditTime: 2024-12-19 16:04:45
 Description: Multi domain alarm processing
 '''
 import os
@@ -64,12 +64,17 @@ def multidomain_alarm_process():
 
         filter_mode_list = ['window', 'topology','window_topology']
         cp_alarms, cyb_alarms, phy_alarms = get_cyber_physical_alarms(cyber_npy_files[i], physical_npy_files[i])
+
         for filter_mode in filter_mode_list:
+
             print('\n -------------------------------------------------------')
             print(f"Processing with filter_mode '{filter_mode}'")
             filtered_cyb_alarms_list, filtered_phy_alarms_list = Spatiotemporal_alarm_filter(cp_alarms, filter_mode = filter_mode)
             
             anomaly_location_evaluation(cyb_alarms, phy_alarms, filtered_cyb_alarms_list, filtered_phy_alarms_list)
+            
+            anomaly_identification_evaluation(copy.deepcopy(cp_alarms), copy.deepcopy(filtered_cyb_alarms_list), copy.deepcopy(filtered_phy_alarms_list))
+
             
 
 def assign_afi_label(x):
@@ -130,9 +135,7 @@ def anomaly_identification_evaluation(cp_alarms, filtered_cyb_alarms, filtered_p
 
 def anomaly_location_evaluation(cyb_alarms_list, phy_alarms_list, filtered_cyb_alarms_list, filtered_phy_alarms_list):
     
-    # Obtain abnormal localization labels
     cyb_alarm_label_list, phy_alarm_label_list = add_cp_alarms_labels()
-
     cyb_devices_num = 5
     phy_devices_num = 18
 
@@ -176,7 +179,6 @@ def anomaly_location_evaluation(cyb_alarms_list, phy_alarms_list, filtered_cyb_a
             for phy_alarm in phy_alarms:
                 phy_alarm_array[i][phy_devices.index(phy_alarm)] = 1
     # ---------------------------------------------
-
     cyb_alarm_label_array = cyb_alarm_label_array.flatten()
     phy_alarm_label_array = phy_alarm_label_array.flatten()
     cyb_alarm_array = cyb_alarm_array.flatten()
@@ -197,7 +199,6 @@ def anomaly_location_evaluation(cyb_alarms_list, phy_alarms_list, filtered_cyb_a
     anomaly_detect_metric(filtered_cyb_alarm_array, cyb_alarm_label_array)
     print('* Accuracy of Physical Domain Alarm Localization ')
     anomaly_detect_metric(filtered_phy_alarm_array, phy_alarm_label_array)
-
 
 
 def add_cp_alarms_labels(ad_result = None):
