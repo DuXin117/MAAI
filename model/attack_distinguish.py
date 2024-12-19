@@ -138,7 +138,7 @@ def fault_similarity_evaluate(device_list):
 def generate_attack_fault_alarm_list():
 
     alarm_list = {
-        # 所有的传感器，同时回路传感器故障会带动关联的执行器与状态
+
         'MITM' : [
             ['EWS', 'PLC1', 'FV3', 'TI3' , 'FI4']
         ],
@@ -149,19 +149,15 @@ def generate_attack_fault_alarm_list():
             ['EWS', 'PLC2', 'FV4', 'LI1', 'FI1', 'FI2' ]
         ],
         'SF': [
-            # 1-非回路传感器，选取三个控制器下的传感器
-            # SF1
-            ['FI1'], # PLC1
-            # ['PI_03'], # PLC2
-            ['PI2'], # PLC3
+
+            ['FI1'], 
+            ['PI2'], 
 
         ],
-        # 随机通信故障将会导致设备失去通信
         'CLF': [
-            ['EWS'],  # EWS 接收到 HIS数据后进行工况控制，短时间内的工控指令缺失假定不会影响到下层通信
-            ['DBS'],  # 假定DBS故障下暂时不影响下面的控制过程
+            ['EWS'],  
+            ['DBS'],  
         ],
-        # 3个控制器随机出现故障
         'CF': [
             ["FV1", "FV2", "FV3", "TI1", "TI2", "TI3", "TI4", "FI3", "FI4", "FI5", "FI6", "PI1", "PI2", "LI2"],
             ["FV4", "FI1", "LI1", "FI2"],
@@ -205,9 +201,9 @@ def anomaly_detect_metric(predict, labels, setting = '', mode = 'simple'):
         
         for i in compare_label:
 
-            binary_labels = (labels == i) | (labels == 0)  # 只保留正常数据和当前异常类型
-            binary_predict = predict[binary_labels]  # 获取相应的预测结果
-            binary_labels = labels[binary_labels] == i  # 将异常标签转换为True，正常标签转换为False
+            binary_labels = (labels == i) | (labels == 0)  
+            binary_predict = predict[binary_labels]  
+            binary_labels = labels[binary_labels] == i  
 
             print(f'>Label {i}: ', sum(labels == i))
             print(f'>Label 0: ', sum(labels == 0))
@@ -216,7 +212,7 @@ def anomaly_detect_metric(predict, labels, setting = '', mode = 'simple'):
             recall = recall_score(binary_labels, binary_predict)
             precision_scores.append(precision)
 
-            print(f"异常类型 {i}:", anomaly_type[i])
+            print(f"> Abnormal event type {i}:", anomaly_type[i])
             print(f"Precision: {precision}")
             print(f"Recall: {recall}")
             print("-" * 30)

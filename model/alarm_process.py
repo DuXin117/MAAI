@@ -2,7 +2,7 @@
 Author: Xin Du
 Date: 2024-09-18 16:32:26
 LastEditors: Xin Du
-LastEditTime: 2024-12-19 16:04:45
+LastEditTime: 2024-12-19 21:40:17
 Description: Multi domain alarm processing
 '''
 import os
@@ -42,6 +42,7 @@ def get_cyber_physical_alarms(cyber_anomaly_predict_file, physical_anomaly_predi
         cyber_physical_alarms.append(combined_alerts)
 
     return cyber_physical_alarms, cyber_alarms_list, physical_alarms_list
+
 
 
 def multidomain_alarm_process():

@@ -2,7 +2,7 @@
  * @Author: Xin Du
  * @Date: 2024-12-16 10:50:30
  * @LastEditors: Xin Du
- * @LastEditTime: 2024-12-19 16:31:39
+ * @LastEditTime: 2024-12-19 22:23:53
  * @Description: file content
 -->
 
@@ -108,3 +108,4 @@ pgmpy==0.1.25
 
 - Attack Identification for Multi-domain Anomaly Detection
   - After running `python Anomaly_detector.py`, the attack identification results combined with multi-domain anomaly alarms will be printed in the command prompt (cmd). 
+  - To observe and analyze the attack and fault identification results of the multi-domain detector, it is necessary to ensure that appropriate `.npy` DL model prediction files are placed in `./exp_files/prediction/cyber` and `./exp_files/prediction/physical`.
